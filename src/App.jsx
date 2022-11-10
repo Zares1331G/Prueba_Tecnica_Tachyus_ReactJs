@@ -1,12 +1,13 @@
-import React from "react";
 import FileUpload from "./Components/FileUpload";
 import Table from "./Components/Table";
+import {DataProvider } from "./Context/DataContext";
 
 export default function App() {
+
   return (
-    <div>
+    <DataProvider>
       <FileUpload />
       <Table />
-    </div>
+    </DataProvider>
   );
 }
