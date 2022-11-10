@@ -1,9 +1,12 @@
-function App() {
+import React from "react";
+import FileUpload from "./Components/FileUpload";
+import Table from "./Components/Table";
+
+export default function App() {
   return (
-    <div className="App">
-      Oli
+    <div>
+      <FileUpload />
+      <Table />
     </div>
   );
 }
-
-export default App;
