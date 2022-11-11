@@ -1,19 +1,18 @@
 import { useState } from "react";
 import FileUpload from "./Components/FileUpload";
-import Table from "./Components/Table";
 import { DataProvider } from "./Context/DataContext";
-import LineGraph from "./Components/LineGraph";
-import Map from "./Components/Map";
-
+import Header from "./Components/Header/Header";
+import Main from "./Components/Main/Main";
 export default function App() {
   const [active, setActive] = useState(false);
 
   return (
     <DataProvider>
-      <FileUpload setActive={setActive} />
-      {active ? <Table /> : ""}
-      {active ? <LineGraph /> : ""}
-      {active ? <Map /> : ""}      
+      <div className="container">
+        <Header />
+        <FileUpload setActive={setActive} />
+        {active ? <Main /> : ""}
+      </div>
     </DataProvider>
   );
 }

@@ -140,6 +140,7 @@ export default function Map() {
 
   return data[0]?.Qo && topology ? (
     <div>
+      Map
       <HighchartsReact
         highcharts={Highcharts}
         options={options}
