@@ -4830,6 +4830,16 @@
   "resolved" "https://registry.npmjs.org/he/-/he-1.2.0.tgz"
   "version" "1.2.0"
 
+"highcharts-react-official@^3.1.0":
+  "integrity" "sha512-CkWJHrVMOc6CT8KFu1dR+a0w5OxCVKKgZUNWtEi5TmR0xqBDIDe+RyM652MAN/jBYppxMo6TCUVlRObCyWAn0Q=="
+  "resolved" "https://registry.npmjs.org/highcharts-react-official/-/highcharts-react-official-3.1.0.tgz"
+  "version" "3.1.0"
+
+"highcharts@>=6.0.0":
+  "integrity" "sha512-8UgVcLmgpiYwnsII0Ht76O+GRutfbrLslZFH3c53fXgl3aZ6NRB4mW5qsIyfsUExMny/n9JqYO/BFNejOKC6AA=="
+  "resolved" "https://registry.npmjs.org/highcharts/-/highcharts-10.3.1.tgz"
+  "version" "10.3.1"
+
 "hoopy@^0.1.4":
   "integrity" "sha512-HRcs+2mr52W0K+x8RzcLzuPPmVIKMSv97RGHy0Ea9y/mpcaK+xTrjICA04KAHi4GRzxliNqNJEFYWHghy3rSfQ=="
   "resolved" "https://registry.npmjs.org/hoopy/-/hoopy-0.1.4.tgz"
@@ -7542,7 +7552,7 @@
     "loose-envify" "^1.4.0"
     "prop-types" "^15.6.2"
 
-"react@^16.8.2 || ^17.0.0 || ^18.0.0", "react@^18.2.0", "react@>= 16", "react@>=16.6.0":
+"react@^16.8.2 || ^17.0.0 || ^18.0.0", "react@^18.2.0", "react@>= 16", "react@>=16.6.0", "react@>=16.8.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
