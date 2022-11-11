@@ -1,4 +1,5 @@
-import { useState, CSSProperties } from "react";
+import React, { useContext,useState  } from "react";
+import { DataContext } from "../Context/DataContext";
 
 import {
   useCSVReader,
@@ -25,7 +26,7 @@ const styles = {
     height: "100%",
     justifyContent: "center",
     padding: 20,
-  } as CSSProperties,
+  },
   file: {
     background: "linear-gradient(to bottom, #EEE, #DDD)",
     borderRadius: 20,
@@ -36,47 +37,47 @@ const styles = {
     zIndex: 10,
     flexDirection: "column",
     justifyContent: "center",
-  } as CSSProperties,
+  },
   info: {
     alignItems: "center",
     display: "flex",
     flexDirection: "column",
     paddingLeft: 10,
     paddingRight: 10,
-  } as CSSProperties,
+  },
   size: {
     backgroundColor: GREY_LIGHT,
     borderRadius: 3,
     marginBottom: "0.5em",
     justifyContent: "center",
     display: "flex",
-  } as CSSProperties,
+  },
   name: {
     backgroundColor: GREY_LIGHT,
     borderRadius: 3,
     fontSize: 12,
     marginBottom: "0.5em",
-  } as CSSProperties,
+  },
   progressBar: {
     bottom: 14,
     position: "absolute",
     width: "100%",
     paddingLeft: 10,
     paddingRight: 10,
-  } as CSSProperties,
+  },
   zoneHover: {
     borderColor: GREY_DIM,
-  } as CSSProperties,
+  },
   default: {
     borderColor: GREY,
-  } as CSSProperties,
+  },
   remove: {
     height: 23,
     position: "absolute",
     right: 6,
     top: 6,
     width: 23,
-  } as CSSProperties,
+  },
 };
 
 export default function FileUpload() {
@@ -86,19 +87,54 @@ export default function FileUpload() {
     DEFAULT_REMOVE_HOVER_COLOR
   );
 
+  const wepa = useContext(DataContext);
+
+  console.log("Conte",wepa.data)
+  
+  const arrayContructor = (results) =>{
+    const {data} = results
+    let contadorFila = 0
+    let contadorColumna = 0
+
+    let newArr= []
+    let objetos = []
+
+    data.forEach(element =>{
+      contadorColumna = 0
+
+      let objeto={}
+
+      element.forEach(item =>{
+        if(contadorFila === 0){
+          newArr[contadorColumna] = item
+        }else{
+          objeto[newArr[contadorColumna]] = item
+        }
+        contadorColumna += 1
+      })
+      if(contadorFila !== 0){
+        objetos.push(objeto)
+      }
+      contadorFila +=1
+    })
+
+    //setData(objetos)
+    console.log("Funciona",objetos)
+  }
+
   return (
     <CSVReader
       onUploadAccepted={(results: any) => {
         console.log("---------------------------");
-        console.log(results.data[0]);
+        arrayContructor(results)
         console.log("---------------------------");
         setZoneHover(false);
       }}
-      onDragOver={(event: DragEvent) => {
+      onDragOver={(event) => {
         event.preventDefault();
         setZoneHover(true);
       }}
-      onDragLeave={(event: DragEvent) => {
+      onDragLeave={(event) => {
         event.preventDefault();
         setZoneHover(false);
       }}

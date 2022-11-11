@@ -1,11 +1,17 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
-export const DataContext = createContext();
+export const DataContext = createContext([{
+    text: "Funciona"
+}]);
 
 export const DataProvider = ({ children }) => {
-  const user = {
-    name: "Higui",
-  };
+  const [data, setData] = useState("oli");
 
-  return <DataContext.Provider value={user}>{children}</DataContext.Provider>;
+  console.log("Wepa",data)
+
+  return (
+    <DataContext.Provider value={(data, setData)}>
+      {children}
+    </DataContext.Provider>
+  );
 };

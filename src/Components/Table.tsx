@@ -1,18 +1,25 @@
+import React, { useContext } from "react";
+import { DataContext } from "../Context/DataContext";
 import { Grid, GridColumn } from "@progress/kendo-react-grid";
-import products from "./product.json";
+import product from './product.json'
+
 const Table = () => {
+  const { data }:any = useContext(DataContext);
+
+  console.log("Info DAta", data)
+
   return (
     <Grid
       style={{
-        height: "400px",
+        height: "600px",
       }}
-      data={products}
+      data={product}
     >
-      <GridColumn field="ProductID" title="ID" width="40px" />
-      <GridColumn field="ProductName" title="Name" width="250px" />
-      <GridColumn field="Category.CategoryName" title="CategoryName" />
-      <GridColumn field="UnitPrice" title="Price" />
-      <GridColumn field="UnitsInStock" title="In stock" />
+      {Object.keys(product[0]).map((key)=>{
+        return(
+          <GridColumn field={key} title={key} width="50px" />
+        )
+      })}
     </Grid>
   );
 };
