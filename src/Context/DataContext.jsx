@@ -1,16 +1,12 @@
 import { createContext, useState } from "react";
 
-export const DataContext = createContext([{
-    text: "Funciona"
-}]);
+export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
-  const [data, setData] = useState("oli");
-
-  console.log("Wepa",data)
+  const [data, setData] = useState();
 
   return (
-    <DataContext.Provider value={(data, setData)}>
+    <DataContext.Provider value={{data, setData}}>
       {children}
     </DataContext.Provider>
   );

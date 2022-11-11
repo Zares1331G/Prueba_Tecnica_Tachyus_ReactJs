@@ -80,16 +80,14 @@ const styles = {
   },
 };
 
-export default function FileUpload() {
+export default function FileUpload({setActive}) {
   const { CSVReader } = useCSVReader();
   const [zoneHover, setZoneHover] = useState(false);
   const [removeHoverColor, setRemoveHoverColor] = useState(
     DEFAULT_REMOVE_HOVER_COLOR
   );
 
-  const wepa = useContext(DataContext);
-
-  console.log("Conte",wepa.data)
+  const {setData} = useContext(DataContext);
   
   const arrayContructor = (results) =>{
     const {data} = results
@@ -108,6 +106,7 @@ export default function FileUpload() {
         if(contadorFila === 0){
           newArr[contadorColumna] = item
         }else{
+          objeto["ProductID"] = contadorFila
           objeto[newArr[contadorColumna]] = item
         }
         contadorColumna += 1
@@ -118,8 +117,8 @@ export default function FileUpload() {
       contadorFila +=1
     })
 
-    //setData(objetos)
-    console.log("Funciona",objetos)
+    setData(objetos)
+    setActive(true)
   }
 
   return (
@@ -127,6 +126,7 @@ export default function FileUpload() {
       onUploadAccepted={(results: any) => {
         console.log("---------------------------");
         arrayContructor(results)
+        console.log(results)
         console.log("---------------------------");
         setZoneHover(false);
       }}
@@ -184,7 +184,9 @@ export default function FileUpload() {
                 </div>
               </>
             ) : (
-              "Drop CSV file here or click to upload"
+              <div onLoad={setActive(false)}>
+                "Drop CSV file here or click to upload"
+              </div>              
             )}
           </div>
         </>
