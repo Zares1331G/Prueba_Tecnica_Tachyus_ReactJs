@@ -73,7 +73,7 @@ const Table = () => {
       onRowClick={rowClick}
       onItemChange={itemChange}
     >
-      <GridToolbar>
+      {/* <GridToolbar>
         <div onClick={closeEdit}>
           <button
             title="Add new"
@@ -83,7 +83,7 @@ const Table = () => {
             Agregar nuevo
           </button>
         </div>
-      </GridToolbar>
+      </GridToolbar> */}
       {Object.keys(data[0])?.map((key) => {
         return key === "ProductID" ? (
           <Column field={key} title={key} width="150px" editable={false} />

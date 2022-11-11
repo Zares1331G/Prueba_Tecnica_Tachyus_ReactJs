@@ -38,7 +38,7 @@ export default function LineGraph() {
 
   return (data[0].Qo ?(
     <div>
-      <HighchartsReact highcharts={Highcharts} options={options} />
+      <HighchartsReact highcharts={Highcharts} options={options}  />
     </div>
   ): "")
 }

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@highcharts/map-collection": "^2.0.1",
     "@progress/kendo-data-query": "^1.6.0",
     "@progress/kendo-drawing": "^1.17.2",
     "@progress/kendo-licensing": "^1.2.2",
